@@ -1,0 +1,57 @@
+  vector<int>ans;
+    
+    int n=num.size()-1;
+    
+    int temp;
+    int carry=0;
+    int num1;        
+    
+    while(n>=0 || k>0)
+    {
+        
+        if(n<0)
+        {
+             num1=k%10;
+       
+            temp=(num1+carry)%10;
+            carry=(num1+carry)/10;
+            
+            ans.push_back(temp);
+            
+             k=k/10;
+        }
+        
+        else if(k<0)
+        {
+            temp=(num[n]+carry)%10;
+            carry=(num[n]+carry)/10;
+            
+            ans.push_back(temp);
+            
+            n--;
+        }
+        
+        else
+        {
+            num1=k%10;
+            
+            temp=(num1+num[n]+carry)%10;
+            carry=(num1+num[n]+carry)/10;
+            
+            ans.push_back(temp);
+            
+            k=k/10;
+            
+            n--;
+        }
+            
+    }
+    
+    if(carry)
+        ans.push_back(carry);
+    
+    reverse(ans.begin(),ans.end());
+    
+    return ans;
+    
+}
