@@ -1,0 +1,41 @@
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        int s,e;
+        s=0;
+        e=num;
+       // mid=s+(e-s)/2;
+        bool ans=false;
+        if(num==1){
+            ans=true;
+            return ans;
+        }
+        else{
+        for(int i=0;i<num;i++){
+            int mid=s+(e-s)/2;
+           long int tr;
+           tr=mid*mid;
+            if(tr==num){
+                ans=true;
+            }
+             if(tr>num){
+                e=mid-1;
+            }
+            else{
+                s=mid+1;
+            }
+        }
+        return ans;
+        } }
+};
+
+------------------------------------------------------------------------second solution-----------------------------------------------------------------------------
+
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        long int i=1;
+        for(;i*i<num;i++);
+        return i*i==num;
+    }
+};
