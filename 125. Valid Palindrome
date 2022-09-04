@@ -1,0 +1,34 @@
+class Solution {
+public:
+bool isPalindrome(string s) {
+
+    s.erase(remove(s.begin(), s.end(), ' '), s.end());
+    
+    string str = "";
+    
+    for(int i = 0; i < s.size(); i++){
+        if((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9'))
+        {
+            str += tolower(s[i]);
+        }
+    }
+    
+    
+    //  if((str.size() == 1)){
+    //     return false;
+    // }
+    
+    s = "";
+    
+    s = str;
+    reverse(s.begin(), s.end());
+    
+
+    
+    if(str.compare(s) == 0)
+        return true;
+    
+    else 
+        return false;
+}
+};
