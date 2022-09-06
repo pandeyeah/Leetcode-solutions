@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int countGoodRectangles(vector<vector<int>>& rectangles) {
+        vector<int> MiN;
+        int Min;
+        int Max=INT_MIN;
+        for(int i=0;i<rectangles.size();i++){
+            Min=min(rectangles[i][0],rectangles[i][1]);
+            MiN.push_back(Min);
+            
+        }
+        for(int j=0;j<MiN.size();j++){
+            Max=max(Max,MiN[j]);
+        }
+        int num=0;
+        for(int k=0;k<MiN.size();k++){
+            if(Max==MiN[k]){
+                num++;
+            }
+        }
+        return num;
+    }
+};
